@@ -1,0 +1,50 @@
+h1 {
+    font-family: 'Luckiest Guy';
+    font-size: 22px;
+}
+
+p {
+    color: black;
+}
+
+.mat-card {
+    width: 135px;
+    background-color: white;
+}
+
+.mat-content {
+    text-align: center;
+    color: blue;
+}
+.card-exp {
+    color: black;
+}
+.card-name {
+    font-family: 'Luckiest Guy';
+    font-size: 17px;
+}
+.mat-grid-tile {
+    margin: -35px;
+}
+.form-label{
+    color: gray;
+    font-family:" PT Sans Narrow";
+    display: inline;
+}
+.mat-paginator {
+    background-color: #fafafa;
+}
+.input {
+   display: flex;
+   .mat-input {
+       justify-content: flex-end;
+       margin-left: 20%;
+       background-image: url('https://image.flaticon.com/icons/svg/126/126474.svg');
+       background-repeat: no-repeat;
+       background-position: left;   
+       background-size: 2%;
+       padding-inline-start: 2%;
+   }
+}
+
+

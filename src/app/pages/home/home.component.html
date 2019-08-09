@@ -1,0 +1,39 @@
+
+<div class='input'>
+  <mat-form-field class='form'>
+    <mat-label class='form-label'>Pokemon types</mat-label>
+    <mat-select class= 'select' [(value)]="selected">
+       <mat-option  class="mat-options" (click)="reload()" value="">All</mat-option>
+      <mat-option  class="mat-options" *ngFor="let type of types?.results" (click)="getInfo()" value="{{type.url}}">{{type.name}}</mat-option>
+    </mat-select>
+    
+  </mat-form-field>
+  <mat-form-field class="mat-input">
+    <input matInput [(ngModel)]="term" placeholder="type a keyword">
+  </mat-form-field>
+
+</div>
+  <mat-paginator   [length]="pokemons?.count"
+                [pageSize]="20"
+                (page) = "pageEvent = $event"
+                (click) = "reloadPaginatedItems()"
+                >
+  </mat-paginator>
+
+ 
+
+
+
+<mat-grid-list *ngIf="pokemons" cols="4" rowHeight="1:1" gutterSize="3px" >
+  <mat-grid-tile *ngFor="let pokemon of pokemons.data | filter:term">
+
+    <mat-card *ngIf='pokemon' (click)='openDialog(pokemon?.id)' class="pokemon-card">
+        <h1 class="card-exp">{{pokemon.base_experience}}</h1>
+        <img mat-card-image src={{pokemon.sprites.front_default}}>
+        <mat-card-content class="mat-content">
+        <h4 class="card-name">{{pokemon.name}}</h4>
+        </mat-card-content>
+    </mat-card>   
+
+  </mat-grid-tile>
+</mat-grid-list>

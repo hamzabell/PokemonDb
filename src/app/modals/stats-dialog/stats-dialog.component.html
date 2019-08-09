@@ -1,0 +1,42 @@
+<div class='body' classmat-dialog-content *ngIf="data">
+<h1>Base Stats</h1>
+<mat-icon svgIcon="thumbs-up" aria-hidden="false" aria-label="Example thumbs up SVG icon"></mat-icon>
+ <mat-grid-list cols = "4" rowHeight='240px'>  
+   <mat-grid-tile 
+   [colspan] = "1"
+   [rowspan] = "2">
+   <img mat-card-image src={{data.sprites?.front_default}}>
+   <img mat-card-image src={{data.sprites?.back_default}}>
+   </mat-grid-tile>
+    <mat-grid-tile 
+   [colspan] = "3"
+   [rowspan] = "2">
+    <div class="container">
+    <div *ngFor='let stat of data.stats'>
+    <p class='circle-descriptor'>{{stat.stat.name}}</p>
+    <round-progress  
+    [current]='stat.base_stat'
+    [max]=100
+    [color]="'#45ccce'"
+    [background]="'#eaeaea'"
+    [radius]="53"
+    [stroke]="8"
+    [rounded]="true"
+    [clockwise]="false"
+    [responsive]="false"
+    [duration]="800"
+    [animation]="'easeInOutQuart'"
+    [animationDelay]="0"
+    ></round-progress>
+    
+    </div>
+    
+
+   </div>
+
+   </mat-grid-tile>
+</mat-grid-list>
+</div>
+<div class='ok-button' mat-dialog-actions>
+  <button mat-button  [mat-dialog-close]="data.animal" cdkFocusInitial >Ok</button>
+</div>
